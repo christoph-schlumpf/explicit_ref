@@ -10,20 +10,24 @@ ref a = mut_ref(value)
 
 ref b = read_ref(value)
 """An explicit `read` reference binding (immutable).
-`b` can't be reassinged an the `value` can't be mutated via `b`.
+`b` can't be reassinged and the `value` can't be mutated via `b`.
 """
 
-ref c = let_ref(value)
+ref c = read_ref(value.copy())
 """An exclusive immutable reference binding to `value`.
-`c` can't be reassinged an the `value` can't be mutated via `a`.
+`c` can't be reassinged an the `value` can't be mutated via `c`.
 No other variable can access `value`.
-This is the same as `let` and `const` in many other programming languages (i.e. a runtime constant).
+This is the same as `let` or `const` in many other programming languages (i.e. a runtime constant).
 """
 
-# or
-ref d = const_ref(value)
-"""An alternative to `let` because some prefer to call it `const`."""
+ref d = read_ref(some_extermal_provided_owned_value())
+""""An exclusive immutable reference binding to `value`.
+`d` can't be reassinged and the `value` can't be mutated via `d`.
+No other variable can access `value`.
+This is the same as `let` or `const` in many other programming languages (i.e. a runtime constant).
+"""
 ```
+See [example](./example)
 
 Possible corresponding "syntactic sugar" for reference bindings with explicit mutability (not implemented as of Mojo 25.4 and might never be implemented):
 ```mojo
@@ -38,17 +42,17 @@ const d = value
 
 Only use "explicit_ref" reference bindings if needed to make the intended mutability explicit and enforce it. In many cases `var` and `ref` are sufficient.
 
-Prefer compile time `alias` declarations to runtime `let_ref()`/`const_ref)()` constant bindings. It is more efficient and idiomatic in Mojo.
+Prefer compile time `alias` declarations over runtime `read_ref()` constant bindings. It is more efficient and idiomatic in Mojo.
 
 ```mojo
-ref startTime = time.perf_counter_ns()
-""" Good: value is not known at complie time but shall not be mutated"""
+ref startTime = read_ref(time.perf_counter_ns())
+""" Good: value is not known at compile time but shall not be mutated"""
 
-alias magic_number = 42` 
-"""Good: value is known at compile time)"""
+alias magic_number = 42
+"""Good: value is known at compile time"""
 
-ref magic_number = let_ref(42)
-"""Avoid: value is known at compile time. Use `alias` instead"""
+ref magic_number = read_ref(42)
+"""Avoid: value is known at compile time. Use `alias`"""
 ```
 
 # Motivation

@@ -1,0 +1,11 @@
+[workspace]
+authors = ["Christoph Schlumpf <7869150+christoph-schlumpf@users.noreply.github.com>"]
+channels = ["https://conda.modular.com/max-nightly", "https://repo.prefix.dev/modular-community", "conda-forge"]
+name = "explicit_ref"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+max = ">=25.4.0"
