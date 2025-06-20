@@ -16,14 +16,14 @@ ref b = read_ref(value)
 ref c = read_ref(value.copy())
 """An exclusive immutable reference binding to `value`.
 `c` can't be reassinged and the `value` can't be mutated via `c`.
-No other variable can access `value`.
+No other variable can mutate `value`.
 This is the same as `let` or `const` in many other programming languages (i.e. a runtime constant).
 """
 
 ref d = read_ref(some_extermal_provided_owned_value())
 """"An exclusive immutable reference binding to `value`.
 `d` can't be reassinged and the `value` can't be mutated via `d`.
-No other variable can access `value`.
+No other variable can mutate `value`.
 This is the same as `let` or `const` in many other programming languages (i.e. a runtime constant).
 """
 ```
