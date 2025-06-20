@@ -12,7 +12,6 @@
 # ===----------------------------------------------------------------------=== #
 from explicit_ref import mut_ref, read_ref
 from time import *
-from testing import assert_equal
 
 
 fn main() raises:
