@@ -1,8 +1,7 @@
 # explicit_ref
 
-Mojo local reference bindings with explicit mutability.
+A tiny library that provides reference bindings with explicit mutability in [Mojo](https://www.modular.com/mojo):
 
-This tiny library provides reference bindings with explicit mutability:
 ```mojo
 ref a = mut_ref(value)
 """An explicit mutable reference binding to `value`.
@@ -35,9 +34,27 @@ let c = value
 const d = value
 ```
 
+# Recommendations
+
+Only use "explicit_ref" reference bindings if needed to make the intended mutability explicit and enforce it. In many cases `var` and `ref` are sufficient.
+
+Prefer compile time `alias` declarations to runtime `let_ref()`/`const_ref)()` constant bindings. It is more efficient and idiomatic in Mojo.
+
+```mojo
+ref startTime = time.perf_counter_ns()
+""" Good: value is not known at complie time but shall not be mutated"""
+
+alias magic_number = 42` 
+"""Good: value is known at compile time)"""
+
+ref magic_number = let_ref(42)
+"""Avoid: value is known at compile time. Use `alias` instead"""
+```
+
 # Motivation
 
 Starting with Mojo 25.4 local variable bindings have been enhanced with `ref` bindings and implicit `read` bindings (see [Variable Bindings in Mojo](https://github.com/modular/modular/blob/main/mojo/proposals/variable-bindings.md)):
+
 ```mojo
 var a = value
 """A local variable binding that "owns" `value` with mutable access."""
@@ -62,12 +79,3 @@ for k in iterator:
 ```
 
 Reference bindings with explicit mutability might be a good complement to the existing variable bindings in Mojo.
-
-#Recommendations
-
-Only use "explicit_ref" bindings if needed to make the intended mutability explicit and enforce it. In many cases `var` and `ref` are sufficient.
-
-Prefer compile time `alias` declarations to runtime `let_ref()`/`const_ref)()` constant bindings. It is more efficient and idiomatic in Mojo.
-- Good: `alias magic_number = 42` (value is known at compile time)
-- Good: `ref startTime = time.perf_counter_ns()` (value is not known at complie time but shall not be mutated)
-- Avoid: `ref magic_number = let_ref(42)`
