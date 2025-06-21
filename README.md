@@ -1,6 +1,6 @@
 # explicit_ref
 
-A tiny library that provides reference bindings with explicit mutability in [Mojo](https://www.modular.com/mojo):
+A tiny module that provides reference bindings with explicit mutability in [Mojo](https://www.modular.com/mojo):
 
 ```mojo
 ref mut_value = mut(value)
@@ -26,6 +26,7 @@ This is the same as `let` or `const` bindings in many other programming language
 See [example](./example).
 
 Corresponding "syntactic sugar" for reference bindings with explicit mutability (not implemented as of Mojo 25.4 and might never be implemented):
+
 ```mojo
 mut a = value
 read b = value
