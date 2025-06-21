@@ -1,28 +1,16 @@
-# ===----------------------------------------------------------------------=== #
-# Copyright (c) 2025, Christoph Schlumpf
-#
-# Licensed under the Apache License v2.0 with LLVM Exceptions:
-# https://llvm.org/LICENSE.txt
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ===----------------------------------------------------------------------=== #
+"""Example of using explicit reference bindings in Mojo.
+
+This example demonstrates how to use `mut()`, `read()`, and `own()`.
+"""
+
 from explicit_ref import mut, read, own
 from time import *
 
 
 fn main() raises:
-    """Example of using explicit reference bindings in Mojo.
-
-    This example demonstrates how to use `mut`, `read`, and `own`.
-    """
-
     ref let_start_time = read(time.perf_counter_ns())
 
-    # ref mut_start_time = mut(let_start_time) # error: startTime is immutable
+    # ref mut_start_time = mut(let_start_time) # error: let_start_time is immutable
     # let_start_time += 1 # error: let_start_time is immutable
     print("let_start_time =", let_start_time)  # unchanged let_start_time
 
@@ -32,7 +20,7 @@ fn main() raises:
     ref let_interim_time = read(own(interim_time))
 
     mut_interim_time = 0
-    # read_interim_time = 0  # error: read_interim_time is immutable binding
+    # read_interim_time = 0  # error: read_interim_time is an immutable binding
     # let_interim_time = 0  # error: let_interim_time is a runtime constant
     print("read_interim_time = ", read_interim_time)  # read_interim_time = 0
     print("let_interim_time", let_interim_time)  # unchanged let_interim_time
