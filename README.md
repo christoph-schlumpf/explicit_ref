@@ -23,7 +23,7 @@ ref let_value = read(own(value))
 This is the same as `let` or `const` bindings in many other programming languages.
 """
 ```
-See [example](./example).
+See [example](./example.mojo).
 
 Corresponding "syntactic sugar" for reference bindings with explicit mutability (not implemented as of Mojo 25.4 and might never be implemented):
 
