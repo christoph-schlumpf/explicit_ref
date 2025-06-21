@@ -37,7 +37,7 @@ let c = value # or `const d = value`
 
 Only use "explicit_ref" reference bindings to make the intended mutability explicit and enforce it. In many cases `var` and `ref` are sufficient.
 
-For runtime constants, `read(own(a_function())))` can be simplified `read(a_function()))` if `a_function()` returns a an "owned" value.
+For runtime constants, `read(own(a_function())))` can be simplified to `read(a_function()))` if `a_function()` already returns a an "owned" value.
 
 Prefer compile time `alias` declarations over runtime `read(own())` constant bindings. It is more efficient and idiomatic Mojo.
 
