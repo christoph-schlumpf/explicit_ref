@@ -2,6 +2,7 @@
 <p align="center">
  <img src="./logo.jpeg" width=200px>
 </p>
+
 A tiny module that provides reference bindings with explicit mutability in [Mojo](https://www.modular.com/mojo):
 
 ```mojo
