@@ -19,6 +19,7 @@ backend = { name = "pixi-build-rattler-build", version = "0.1.*" }
 
 [tasks]
 test = { cmd = "pixi run mojo test -D ASSERT=all -I . tests" }
+example = { cmd = "pixi run mojo example.mojo" }
 
 [dependencies]
 max = ">=25.4.0"
