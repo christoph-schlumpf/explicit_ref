@@ -1,0 +1,47 @@
+context:
+  version: "0.1.0"
+  max_version: ">25.4"
+
+package:
+  name: "explicit-ref"
+  version: ${{ version }}
+
+source:
+  path: .
+  use_gitignore: true
+
+build:
+  number: 0
+  script:
+    - mojo package explicit-ref -o ${{ PREFIX }}/lib/mojo/explicit_ref.mojopkg
+requirements:
+  host:
+      - modular ${{ modular_version }}
+  run:
+      - modular ${{ modular_version }}
+
+tests:
+  - script:
+      - if: unix
+        then:
+          - mojo test -I ${{ PREFIX }}/lib/mojo/explicit_ref.mojopkg tests
+    requirements:
+      run:
+        - modular ${{ modular_version }}
+    files:
+      source:
+        - tests
+
+
+about:
+  homepage: https://github.com/christoph-schlumpf/explicit_ref
+  license: "MIT"
+  license_file:
+    - LICENSE
+  summary: References with explicit mutability
+  repository: https://github.com/christoph-schlumpf/explicit_ref
+
+extra:
+  maintainers:
+    - sstadick
+  project_name: lapper

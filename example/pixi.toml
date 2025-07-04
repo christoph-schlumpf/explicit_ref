@@ -1,0 +1,15 @@
+[workspace]
+authors = ["Christoph Schlumpf <7869150+christoph-schlumpf@users.noreply.github.com>"]
+channels = [
+    "https://conda.modular.com/max-nightly",
+    "https://repo.prefix.dev/modular-community",
+    "conda-forge"
+]
+platforms = ["osx-arm64",a "linux-64", "linux-aarch64"]
+
+[tasks]
+example = { cmd = "pixi run mojo example.mojo" }
+
+[dependencies]
+max = ">=25.4.0"
+explicit_ref = {git = "https://github.com/christoph-schlumpf/explicit_ref.git"}

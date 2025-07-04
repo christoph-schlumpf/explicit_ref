@@ -2,8 +2,7 @@
 <p align="center">
  <img src="./logo.jpeg" width=250px>
 </p>
-
-A tiny [Mojo](https://www.modular.com/mojo) package that provides reference bindings with explicit mutability.
+A tiny [Mojo](https://www.modular.com/mojo) package for references with explicit mutability.
 
 ```mojo
 ref mut_value = mut_(value)
@@ -26,7 +25,7 @@ ref let_value = read_(var_(value))
 This is the same as `let` or `const` bindings in many other programming languages.
 """
 ```
-See [example](./example.mojo).
+See [example](./example/example.mojo).
 
 Corresponding "syntactic sugar" for references with explicit mutability (not implemented as of Mojo 25.4 and might never be implemented):
 
