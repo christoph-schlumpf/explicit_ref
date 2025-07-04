@@ -5,7 +5,15 @@ channels = [
     "https://repo.prefix.dev/modular-community",
     "conda-forge"
 ]
-platforms = ["osx-arm64",a "linux-64", "linux-aarch64"]
+platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
+preview = ["pixi-build"]
+
+[package]
+name = "example"
+version = "0.1.0"
+
+[package.build]
+backend = { name = "pixi-build-rattler-build", version = "0.1.*" }
 
 [tasks]
 example = { cmd = "pixi run mojo example.mojo" }

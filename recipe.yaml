@@ -1,6 +1,6 @@
 context:
   version: "0.1.0"
-  max_version: ">25.4"
+  max_version: ">=25.4"
 
 package:
   name: "explicit-ref"
