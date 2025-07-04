@@ -22,5 +22,5 @@ test = { cmd = "pixi run mojo test -D ASSERT=all -I . tests" }
 example = { cmd = "pixi run mojo example.mojo" }
 
 [dependencies]
-max = ">=25.4.0"
+max = ">25.4.0"
 rattler-build = "*"

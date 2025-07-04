@@ -1,6 +1,5 @@
 """Functions that provide reference bindings with explicit mutability in [Mojo](https://www.modular.com/mojo)."""
 
-
 @always_inline
 fn mut_[T: Copyable & Movable](mut value: T) -> ref [value] T:
     """Returns `value` as a mutable reference."""
