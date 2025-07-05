@@ -3,7 +3,7 @@ context:
   max_version: ">25.4"
 
 package:
-  name: "explicit-ref"
+  name: "explicit_ref"
   version: ${{ version }}
 
 source:
@@ -13,12 +13,12 @@ source:
 build:
   number: 0
   script:
-    - mojo package explicit-ref -o ${{ PREFIX }}/lib/mojo/explicit_ref.mojopkg
+    - mojo package explicit_ref -o ${{ PREFIX }}/lib/mojo/explicit_ref.mojopkg
 requirements:
   host:
-      - modular ${{ modular_version }}
+      - max ${{ max_version }}
   run:
-      - modular ${{ modular_version }}
+      - max ${{ max_version }}
 
 tests:
   - script:
@@ -27,7 +27,7 @@ tests:
           - mojo test -I ${{ PREFIX }}/lib/mojo/explicit_ref.mojopkg tests
     requirements:
       run:
-        - modular ${{ modular_version }}
+        - max ${{ max_version }}
     files:
       source:
         - tests
@@ -43,5 +43,5 @@ about:
 
 extra:
   maintainers:
-    - sstadick
-  project_name: lapper
+    - christoph-schlumpf
+  project_name: explicit_ref
