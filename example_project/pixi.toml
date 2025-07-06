@@ -2,9 +2,10 @@
 authors = ["Christoph Schlumpf <7869150+christoph-schlumpf@users.noreply.github.com>"]
 channels = [
     "https://conda.modular.com/max-nightly",
+    "https://prefix.dev/pixi-build-backends",
     "conda-forge"
 ]
-platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
+platforms = ["osx-arm64"]
 preview = ["pixi-build"]
 
 [package]
@@ -18,4 +19,6 @@ backend = { name = "pixi-build-rattler-build", version = "0.1.*" }
 example = { cmd = "pixi run mojo example.mojo" }
 
 [dependencies]
+rattler-build = "*"
+modular = ">=25.5.0.dev2025070605"
 explicit_ref = {git = "https://github.com/christoph-schlumpf/explicit_ref.git"}
