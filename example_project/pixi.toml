@@ -20,5 +20,5 @@ example = { cmd = "pixi run mojo example.mojo" }
 
 [dependencies]
 rattler-build = "*"
-modular = ">=25.5.0.dev2025070605"
+mojo = "*"
 explicit_ref = {git = "https://github.com/christoph-schlumpf/explicit_ref.git"}

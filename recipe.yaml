@@ -1,6 +1,6 @@
 context:
-  version: "0.1.0"
-  modluar_version: ">=25.5.0.dev2025070605"
+  version: "0.2.0"
+  mojo_version: ">=25.5.0.dev2025070605"
 
 package:
   name: "explicit_ref"
@@ -27,7 +27,7 @@ tests:
           - mojo test -I ${{ PREFIX }}/lib/mojo/explicit_ref.mojopkg tests
     requirements:
       run:
-        - modular ${{ modluar_version }}
+        - mojo ${{ modluar_version }}
     files:
       source:
         - tests

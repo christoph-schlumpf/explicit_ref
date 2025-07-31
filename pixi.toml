@@ -1,4 +1,4 @@
-[workspace]
+[project]
 authors = ["Christoph Schlumpf <7869150+christoph-schlumpf@users.noreply.github.com>"]
 channels = [
     "https://conda.modular.com/max-nightly",
@@ -8,18 +8,9 @@ channels = [
 platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
 preview = ["pixi-build"]
 
-[package]
-name = "explicit_ref"
-license = "MIT"
-version = "0.1.0"
-
-[package.build]
-backend = { name = "pixi-build-rattler-build", version = "0.1.*" }
-
 [tasks]
 test = { cmd = "pixi run mojo test -D ASSERT=all -I . tests" }
 example = { cmd = "pixi run mojo example.mojo" }
 
 [dependencies]
-rattler-build = "*"
-modular = ">=25.5.0.dev2025070605"
+mojo = "*"
